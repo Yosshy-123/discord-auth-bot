@@ -1,0 +1,35 @@
+{
+  "name": "discord-auth-bot",
+  "version": "1.0.0",
+  "description": "Discord verification bot: OAuth2 email + Cloudflare Turnstile + IP/UA/WebRTC collection + VPN/Proxy/Tor blocking",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "dev": "tsx watch src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "node dist/db/migrate.js",
+    "db:migrate:dev": "tsx src/db/migrate.ts",
+    "register-commands": "tsx src/discord/register-commands.ts"
+  },
+  "dependencies": {
+    "discord.js": "^14.19.0",
+    "hono": "^4.6.0",
+    "@hono/node-server": "^1.13.0",
+    "drizzle-orm": "^0.36.0",
+    "pg": "^8.13.0",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "@types/pg": "^8.11.10",
+    "drizzle-kit": "^0.28.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  }
+}
